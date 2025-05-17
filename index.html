@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket test</title>
+</head>
+
+<body>
+    <form id="form" action="">
+        <button id="button">click here</button>
+        <input id="wow" autocomplete="off" /><button>submit</button>
+    </form>
+    <ul id="pages"></ul>
+    <ul id="messages"></ul>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const form = document.getElementById('form');
+        const button = document.getElementById('button');
+        const pages = document.getElementById('pages');
+        const wow = document.getElementById('wow');
+        const messages = document.getElementById('messages');
+
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            socket.emit('page', 'paged');
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (wow.value) {
+                socket.emit('message', wow.value);
+                wow.value = '';
+            }
+        })
+
+        socket.on('message', (msg)=>{
+            const item = document.createElement('li');
+            item.textContent = msg;
+            messages.appendChild(item);
+
+        });
+        socket.on('page', (e) => {
+            const item = document.createElement('li');
+            item.textContent = e;
+            pages.appendChild(item);
+        });
+
+    </script>
+</body>
+
+</html>
