@@ -1,4 +1,5 @@
 node_modules
 engine/main
-engine/main.o
+engine/test
+engine/*.o
 .vscode

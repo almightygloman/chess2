@@ -51,18 +51,34 @@ int main()
     init();
     U64 board = BOARD.pieceBB[nWhite] | BOARD.pieceBB[nBlack];
     printf("%c", '\n');
+
+    //print locations of all pieces
     for (int i = 0; i < 64; i++)
     {
         printf("%d", (1ULL << i) & board ? 1 : 0);
         if ((i + 1) % 8 == 0 && i != 0)
             printf("%c", '\n');
     }
-    for (int i = 0; i < 64; i++)
+    printf("%c", '\n');
+
+    //print white pawns
+    for (int i = 63; i >= 0; i--)
     {
-        printf("%c", (1ULL << i) & BOARD.pieceBB[nPawn] & board ? 'p' : '0');
-        if ((i + 1) % 8 == 0 && i != 0)
+        printf("%c", (1ULL << i) & BOARD.pieceBB[nPawn] & BOARD.pieceBB[nWhite] ? 'P' : '0');
+        if (i%8 == 0)
             printf("%c", '\n');
     }
     printf("%c", '\n');
+
+    //print black pawns
+    for (int i = 63; i >= 0; i--)
+    {
+        printf("%c", (1ULL << i) & BOARD.pieceBB[nPawn] & BOARD.pieceBB[nBlack] ? 'p' : '0');
+        if (i%8 == 0)
+            printf("%c", '\n');
+    }
+    printf("%c", '\n');
+
+    
     return 0;
 }
