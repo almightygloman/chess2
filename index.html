@@ -8,7 +8,7 @@
 <body>
     <form id="form" action="">
         <button id="button">click here</button>
-        <input id="wow" autocomplete="off" /><button>submit</button>
+        <input id="input" autocomplete="off" /><button>submit</button>
     </form>
     <ul id="pages"></ul>
     <ul id="messages"></ul>
@@ -19,7 +19,7 @@
         const form = document.getElementById('form');
         const button = document.getElementById('button');
         const pages = document.getElementById('pages');
-        const wow = document.getElementById('wow');
+        const input = document.getElementById('wow');
         const messages = document.getElementById('messages');
 
         button.addEventListener('click', (e) => {
@@ -29,9 +29,9 @@
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            if (wow.value) {
-                socket.emit('message', wow.value);
-                wow.value = '';
+            if (input.value) {
+                socket.emit('message', input.value);
+                input.value = '';
             }
         })
 

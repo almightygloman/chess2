@@ -8,4 +8,4 @@ main.o: main
 	$(CC) $(CFLAGS) -c main.c
 
 clean:
-	rm -rf main main.o
+	rm -rf main test main.o

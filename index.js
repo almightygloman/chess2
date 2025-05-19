@@ -19,6 +19,7 @@ io.on('connection', (socket) => {
     socket.on('message', (msg)=>{
         io.emit('message', msg);
     });
+    
 });
 
 server.listen(3000, '0.0.0.0', () => { 
