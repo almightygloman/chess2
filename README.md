@@ -6,13 +6,13 @@ Recreating my [first attempt](https://github.com/almightygloman/chess) at a full
 To run locally, follow these example steps:
 
 ### Prerequesites
-npm install express
-npm install socketio
+install express.js
+install socketio
 install gcc compiler
 
+### run server
 npm index.js
 
-see make file to run enging
 
 ## Credits
 

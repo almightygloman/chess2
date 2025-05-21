@@ -1,11 +1,7 @@
-CC = gcc
-CFLAGS = -Wall -g
+PP = g++
 
-main: main.o
-	$(CC) $(CFLAGS) -o main main.o
-
-main.o: main
-	$(CC) $(CFLAGS) -c main.c
+main:
+	$(PP) chess.cpp main.cpp -o main
 
 clean:
-	rm -rf main test main.o
+	rm -rf main test *.o *.out

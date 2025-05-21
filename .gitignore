@@ -2,5 +2,4 @@ node_modules
 engine/main
 engine/test*
 engine/*.o
-engine/.clang-format
 .vscode
